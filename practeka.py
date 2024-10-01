@@ -544,3 +544,395 @@
 
 # for i in range(1, 5):
 #   print(f"a{i} = {recursive_sequence(i)}")
+
+# Задание 8 (Задания на цикл с условием)
+
+                # *1*
+# number = 0
+# total = 0
+
+# while True:
+#     number = int(input("Введите число: "))
+#     if number > 0:
+#         total += number
+#     else:
+#         break
+
+# print("Сумма введенных положительных чисел: ", total)
+
+                # *2*
+# number = 0
+# total = 0
+
+# while True:
+#     number = int(input("Введите число: "))
+#     if number < 0:
+#         total += number
+#     else:
+#         break
+
+# print("Сумма введенных отрицательных чисел: ", total)
+
+                # *3*
+# number = 0
+# total = 0
+
+# while True:
+#     number = int(input("Введите число: "))
+#     if number != 0:
+#         total += number
+#     else:
+#         break
+
+# print("Сумма введенных чисел: ", total)
+
+                # *4*
+# number = 0
+# total = 0
+
+# while True:
+#     number = int(input("Введите число: "))
+#     if number % 2 == 0:
+#         total += number
+#     else:
+#         break
+
+# print("Сумма введенных чисел: ", total)
+
+                # *5*
+# n = int(input("Введите число n: "))
+
+# i = 1
+
+# while i**2 <= n:
+#     print(i**2)
+#     i += 1
+
+                # *6*
+# def find_first_square_greater_than(n):
+
+#   i = 1
+#   while i * i <= n:
+#     i += 1
+#   return i
+
+# n = int(input("Введите число: "))
+# result = find_first_square_greater_than(n)
+# print(f"Первое натуральное число, квадрат которого больше {n}: {result}")
+
+                # *7*
+# def find_first_greater_than(n):
+
+#   i = 1
+#   sum = 1
+#   while sum <= n:
+#     i += 1
+#     sum += 1 / i
+#   return sum
+
+# n = int(input("Введите число: "))
+# result = find_first_greater_than(n)
+# print(f"Первое число в последовательности, которое больше {n}: {result}")
+
+                # *8*
+# def find_first_smaller_than(a):
+
+#   i = 2
+#   sum = 1 + 1 / 2
+#   while sum >= a:
+#     i += 1
+#     sum = 1 + 1 / i
+#   return sum
+
+# a = float(input("Введите число: "))
+# result = find_first_smaller_than(a)
+# print(f"Первое число в последовательности, которое меньше {a}: {result}")
+
+                # *9*
+# def check_increasing_sequence():
+
+#   count = 0 
+#   previous_number = None
+
+#   while True:
+#     try:
+#       number = float(input("Введите число: "))
+#       if previous_number is None:
+#         previous_number = number
+#         count += 1
+#       elif number > previous_number:
+#         previous_number = number
+#         count += 1
+#       else:
+#         break
+#     except ValueError:
+#       print("Некорректный ввод. Введите число.")
+
+#   print(f"Введено {count} чисел.")
+
+# check_increasing_sequence()
+
+                # *10*
+# def check_decreasing_sequence():
+
+#   count = 0
+#   previous_number = None
+
+#   while True:
+#     try:
+#       number = float(input("Введите число: "))
+#       if previous_number is None:
+#         previous_number = number
+#         count += 1
+#       elif number < previous_number:
+#         previous_number = number
+#         count += 1
+#       else:
+#         break 
+#     except ValueError:
+#       print("Некорректный ввод. Введите число.")
+
+#   print(f"Введено {count} чисел.")
+ 
+# check_decreasing_sequence()
+
+                # *11*
+# def check_integer_sequence():
+
+#   count = 0  # Счетчик введенных чисел
+
+#   while True:
+#     try:
+#       number = float(input("Введите число: "))
+#       if number.is_integer():
+#         count += 1
+#       else:
+#         break
+#     except ValueError:
+#       print("Некорректный ввод. Введите число.")
+
+#   print(f"Введено {count} целых чисел.")
+
+# check_integer_sequence()
+
+                # *12*
+# def check_numbers_less_than_10():
+
+#   count = 0
+
+#   while True:
+#     try:
+#       number = float(input("Введите число: "))
+#       if number < 10:
+#         count += 1
+#       else:
+#         break
+#     except ValueError:
+#       print("Некорректный ввод. Введите число.")
+
+#   print(f"Введено {count} чисел, меньших 10.")
+
+# check_numbers_less_than_10()
+
+                # *13*
+# def find_max_digit_index(number):
+
+#   max_digit = 0
+#   index_from_end = 0
+#   index_from_start = 0
+
+#   digit_index = 0
+#   for digit in str(number)[::-1]:
+#     digit = int(digit)
+#     if digit > max_digit:
+#       max_digit = digit
+#       index_from_end = digit_index
+#       index_from_start = len(str(number)) - digit_index - 1
+#     digit_index += 1
+
+#   return index_from_end, index_from_start
+
+# number = int(input("Введите число: "))
+# index_from_end, index_from_start = find_max_digit_index(number)
+# print(f"Максимальная цифра в числе {number} имеет индекс:")
+# print(f"  от конца числа: {index_from_end}")
+# print(f"  от начала числа: {index_from_start}")
+
+                # *14*
+# def find_min_digit_index(number):
+
+#   min_digit = 9
+#   index_from_end = 0
+#   index_from_start = 0
+
+#   digit_index = 0
+#   for digit in str(number)[::-1]:
+#     digit = int(digit)
+#     if digit < min_digit:
+#       min_digit = digit
+#       index_from_end = digit_index
+#       index_from_start = len(str(number)) - digit_index - 1
+#     digit_index += 1
+
+#   return index_from_end, index_from_start
+
+# number = int(input("Введите число: "))
+# index_from_end, index_from_start = find_min_digit_index(number)
+# print(f"Минимальная цифра в числе {number} имеет индекс:")
+# print(f"  от конца числа: {index_from_end}")
+# print(f"  от начала числа: {index_from_start}")
+
+                # *15*
+# def find_min_digit_index(number):
+
+#   min_digit = 9
+#   index_from_end = 0
+#   index_from_start = 0
+
+#   digit_index = 0
+#   for digit in str(number)[::-1]:
+#     digit = int(digit)
+#     if digit < min_digit:
+#       min_digit = digit
+#       index_from_end = digit_index
+#       index_from_start = len(str(number)) - digit_index - 1
+#     digit_index += 1
+
+#   return index_from_end, index_from_start
+
+# number = int(input("Введите число: "))
+# index_from_end, index_from_start = find_min_digit_index(number)
+# print(f"Минимальная цифра в числе {number} имеет индекс:")
+# print(f"  от конца числа: {index_from_end}")
+# print(f"  от начала числа: {index_from_start}")
+
+# Задание 9 (Задания на цикл со счётчиком)
+
+                # *1*
+# sum_even_numbers = 0
+
+# for i in range(2, 91, 2):
+#   sum_even_numbers += i
+
+# print(f"Сумма всех четных чисел от 1 до 90: {sum_even_numbers}")
+
+                # *2*
+# def sum_even_numbers_in_range(a, b):
+
+#   sum_even = 0
+#   for i in range(a, b + 1):
+#     if i % 2 == 0:
+#       sum_even += i
+#   return sum_even
+
+# a = int(input("Введите начало диапазона: "))
+# b = int(input("Введите конец диапазона: "))
+
+# sum_even = sum_even_numbers_in_range(a, b)
+# print(f"Сумма всех четных чисел в диапазоне от {a} до {b}: {sum_even}")
+
+                # *3*
+# sum_odd_numbers = 0
+
+# for i in range(1, 91, 2):
+#   sum_odd_numbers += i
+
+# print(f"Сумма всех нечетных чисел от 1 до 90: {sum_odd_numbers}")
+
+                # *4*
+# def sum_odd_numbers_in_range(a, b):
+
+#   sum_odd = 0
+#   for i in range(a, b + 1):
+#     if i % 2 != 0:
+#       sum_odd += i
+#   return sum_odd
+
+# a = int(input("Введите начало диапазона: "))
+# b = int(input("Введите конец диапазона: "))
+
+# sum_odd = sum_odd_numbers_in_range(a, b)
+# print(f"Сумма всех нечетных чисел в диапазоне от {a} до {b}: {sum_odd}")
+
+                # *5*
+# for i in range(1, 10):
+#   print(f"{i} x 5 = {i * 5}")
+
+                # *6*
+# for i in range(1, 10):
+#   print(f"{i} x 9 = {i * 9}")
+
+                # *7*
+# n = int(input("Введите целое число (2 ≤ n ≤ 9): "))
+
+# if 2 <= n <= 9:
+#   for i in range(1, 10):
+#     print(f"{i} x {n} = {i * n}")
+# else:
+#   print("Число n должно быть в диапазоне от 2 до 9.")
+
+                # *8*
+# price_per_kg = float(input("Введите стоимость 1 кг сыра: "))
+
+# for weight in range(50, 1001, 50):
+#   price = weight / 1000 * price_per_kg
+#   print(f"{weight} г сыра: {price:.2f} руб.")
+
+                # *9*
+# price_per_kg = float(input("Введите стоимость 1 кг конфет: "))
+
+# for weight in range(100, 2001, 100):
+#   price = weight / 1000 * price_per_kg
+#   print(f"{weight} г конфет: {price:.2f} руб.")
+
+                # *10*
+# sum = 0
+# for i in range(10, 101):
+#     sum += i
+
+# print(f"Сумма всех целых чисел от 10 до 100: {sum}")
+
+                #*11*
+# a = int(input("Введите значение a: "))
+
+# sum = 0
+# for i in range(a, 101):
+#     sum += i
+
+# print(f"Сумма всех целых чисел от {a} до 100: {sum}")
+
+                # *12*
+# b = int(input("Введите значение b: "))
+
+# sum = 0
+# for i in range(10, b + 1):
+#     sum += i
+
+# print(f"Сумма всех целых чисел от 10 до {b}: {sum}")
+
+                # *13*
+# a = int(input("Введите значение a: "))
+# b = int(input("Введите значение b: "))
+
+# sum = 0
+# for i in range(a, b + 1):
+#     sum += i
+
+# print(f"Сумма всех целых чисел от {a} до {b}: {sum}")
+
+                # *14*
+# product = 1
+# for i in range(10, 101):
+#   product *= i
+
+# print(f"Произведение всех целых чисел от 10 до 100: {product}")
+
+                # *15*
+# a = int(input("Введите значение a: "))
+# b = int(input("Введите значение b: "))
+
+# product = 1
+# for i in range(a, b + 1):
+#   product *= i
+
+# print(f"Произведение всех целых чисел от {a} до {b}: {product}")
