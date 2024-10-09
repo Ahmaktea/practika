@@ -941,3 +941,464 @@
 # print(f"Произведение всех целых чисел от {a} до {b}: {product}")
 
 # # Задание 10 (Задания на комбинацию циклов со счётчиком и условием)
+
+                # *1*
+# n = int(input("Введите количество гостей: "))
+
+# # 1. Каждому гостю достался хотя бы 1 кусок
+# cuts_for_one_piece = 0
+# while 2**cuts_for_one_piece < n:
+#   cuts_for_one_piece += 1
+
+# # 2. Как минимум половине гостей досталось по 2 куска
+# cuts_for_half_with_two_pieces = 0
+# while 2**cuts_for_half_with_two_pieces < n // 2:
+#   cuts_for_half_with_two_pieces += 1
+
+# # 3. Каждому гостю досталось по 1 куску и еще 10 кусков в запасе
+# cuts_for_one_piece_and_ten_left = 0
+# while 2**cuts_for_one_piece_and_ten_left < n + 10:
+#   cuts_for_one_piece_and_ten_left += 1
+
+# print(f"Чтобы каждому гостю достался хотя бы 1 кусок, нужно сделать {cuts_for_one_piece} разрезов.")
+# print(f"Чтобы как минимум половине гостей досталось по 2 куска, нужно сделать {cuts_for_half_with_two_pieces} разрезов.")
+# print(f"Чтобы каждому гостю досталось по 1 куску и еще 10 кусков в запасе, нужно сделать {cuts_for_one_piece_and_ten_left} разрезов.")
+
+                # *2*
+# total_twos = 0
+# days_skipped = 0
+# months_skipped = 0
+
+
+# for month in range(1, 10):
+
+#     days_skipped_this_month = month + 1  
+#     total_twos += days_skipped_this_month * 2  
+#     days_skipped += days_skipped_this_month
+#     months_skipped += 1
+#     total_twos += 3 
+
+#     if total_twos >= 70:
+#         break
+
+# print(f"Василий может прогуливать школу {months_skipped} раз.")
+# print(f"Всего Василий прогуляет {days_skipped} дней.")
+
+                # *3*
+# n = int(input("Введите количество детей: "))
+# m = int(input("Введите количество кубиков: "))
+
+# child_number = 1
+# cubes_taken = 1
+# while cubes_taken <= m:
+#   print(f"Ребенок {child_number} берет {cubes_taken} кубиков.")
+#   m -= cubes_taken
+
+#   if cubes_taken > 25:
+#     cubes_taken -= 25
+
+#   child_number = (child_number % n) + 1
+#   cubes_taken *= 2
+
+# print(f"Проиграл ребенок {child_number}.")
+
+                # *4*
+# x0 = 1
+# x1 = 1
+# n = 1 
+
+# while x1 <= 1000:
+#   x0, x1 = x1, x0 + x1
+#   n += 1
+
+# print(f"Первое число в последовательности Фибоначчи, которое больше 1000: {x1}")
+# print(f"Номер этого числа: {n}")
+
+                # *5*
+# import math
+
+# def fibonacci(n):
+
+#   golden_ratio = (1 + math.sqrt(5)) / 2
+#   return int((1 / math.sqrt(5)) * (golden_ratio**n - ((1 - golden_ratio)**n)))
+
+# def fibonacci_iterative(n):
+
+#   if n <= 1:
+#     return n
+#   else:
+#     x0 = 1
+#     x1 = 1
+#     for i in range(2, n + 1):
+#       x0, x1 = x1, x0 + x1
+#     return x1
+
+# # Находим n, начиная с которого ошибка больше 0.001
+# n = 1
+# while abs(fibonacci(n) - fibonacci_iterative(n)) <= 0.001:
+#   n += 1
+
+# print(f"Начиная с {n}-го члена последовательности Фибоначчи, ошибка вычисления по формуле Бине превышает 0.001.")
+
+                # *6*
+# import random
+
+# balance = 3  # Начальный баланс
+
+# while balance > 0:
+#   choice = int(input("Орёл (0) или решка (1)? Введите любое другое число для выхода: "))
+
+#   if choice == 0:
+#     user_choice = "Орёл"
+#   elif choice == 1:
+#     user_choice = "Решка"
+#   else:
+#     print("Игра окончена.")
+#     break
+
+#   coin_side = random.choice(["Орёл", "Решка"])
+#   print(f"Выпал {coin_side}")
+
+#   if coin_side == user_choice:
+#     print("Вы выиграли!")
+#     balance += 1
+#   else:
+#     print("Вы проиграли.")
+#     balance -= 1
+
+#   print(f"Ваш баланс: {balance} руб.")
+
+# print("Игра окончена. У вас больше нет денег.")
+
+                # *7*
+# deposit = 1000
+# month = 1
+
+# # 1. Определение месяца, когда увеличение превысит 30 рублей
+# while True:
+#   increase = deposit * 0.02
+#   if increase > 30:
+#     break
+#   deposit += increase
+#   month += 1
+
+# print(f"Увеличение вклада превысит 30 рублей в {month}-м месяце.")
+
+# # 2. Определение месяца, когда вклад превысит 1200 рублей
+# month = 1
+# while deposit <= 1200:
+#   deposit += deposit * 0.02
+#   month += 1
+
+# print(f"Вклад превысит 1200 рублей через {month} месяцев.")
+
+                # *8*
+# distance = 10
+# day = 1
+
+# # 1. День, когда пробег больше 20 км
+# while distance <= 20:
+#   distance *= 1.1
+#   day += 1
+
+# print(f"Лыжник пробежит больше 20 км в {day}-й день.")
+
+# # 2. День, когда суммарный пробег больше 100 км
+# distance = 10
+# day = 1
+# total_distance = 0
+# while total_distance <= 100:
+#   total_distance += distance
+#   distance *= 1.1
+#   day += 1
+
+# print(f"Суммарный пробег лыжника превысит 100 км в {day}-й день.")
+
+                                        # Глава 4
+                                    # Массивы. Модуль numpy
+                                        # Задание 11
+                # *1*
+# import numpy as np
+
+# array_10 = np.zeros(10)
+
+# array_55 = np.zeros(55)
+
+# matrix_3x4 = np.zeros((3, 4))
+
+# array_3d = np.zeros((2, 4, 5))
+
+# print("Одномерный массив длины 10:", array_10)
+# print("Одномерный массив длины 55:", array_55)
+# print("Матрица 3×4:\n", matrix_3x4)
+# print("Трёхмерный массив формы 2 × 4 × 5:\n", array_3d)
+
+                # *2*
+# import numpy as np
+
+# array_10 = np.ones(10)
+
+# array_55 = np.ones(55)
+
+# matrix_3x4 = np.ones((3, 4))
+
+# array_3d = np.ones((2, 4, 5))
+
+# print("Одномерный массив длины 10:", array_10)
+# print("Одномерный массив длины 55:", array_55)
+# print("Матрица 3×4:\n", matrix_3x4)
+# print("Трёхмерный массив формы 2 × 4 × 5:\n", array_3d)
+
+                # *4*
+# import numpy as np
+
+# array_10 = np.full(10, 9)
+
+# array_55 = np.full(55, 9)
+
+# matrix_3x4 = np.full((3, 4), 9)
+
+# array_3d = np.full((2, 4, 5), 9)
+
+# print("Одномерный массив длины 10:", array_10)
+# print("Одномерный массив длины 55:", array_55)
+# print("Матрица 3×4:\n", matrix_3x4)
+# print("Трёхмерный массив формы 2 × 4 × 5:\n", array_3d)
+
+                # *5*
+# import numpy as np
+
+# array = np.arange(-10, 10, 0.1)
+
+# print(array)
+
+                # *6*
+# import numpy as np
+# import math
+
+# e = math.e
+# array = np.arange(-e, e, e/50)
+
+# print(array)
+
+                # *7*
+# import numpy as np
+# import math
+
+# pi = math.pi
+# array = np.arange(-15 * pi, 15 * pi, pi / 12)
+
+# print(array)
+
+                # *8*
+# import numpy as np
+
+# identity_matrix = np.identity(5)
+
+# print(identity_matrix)
+
+                # *9*
+# import numpy as np
+
+# diagonal_matrix = np.diag([0.5] * 5)
+
+# print(diagonal_matrix)
+
+                # *10*
+# import numpy as np
+
+# matrix = np.full((5, 5), 2)
+# np.fill_diagonal(matrix, 1)
+
+# print(matrix)
+
+                # *11*
+# import numpy as np
+
+# matrix = np.zeros((5, 5))
+# for i in range(5):
+#   matrix[:, i] = i + 1
+
+# print(matrix)
+
+                # *12*
+# import numpy as np
+
+# matrix = np.zeros((5, 5))
+
+# for i in range(5):
+#   matrix[i, :] = i + 1
+
+# print(matrix)
+
+                # *13*
+# import numpy as np
+
+# matrix = np.zeros((5, 5))
+
+# for i in range(5):
+#   for j in range(i + 1, 5):
+#     matrix[i, j] = 1
+
+# for i in range(5):
+#   for j in range(i):
+#     matrix[i, j] = -1
+
+# print(matrix)
+
+                # *14*
+# import numpy as np
+
+# matrix = np.zeros((5, 5))
+
+# np.fill_diagonal(matrix, 1)
+
+# for i in range(5):
+#   for j in range(i + 1, 5):
+#     matrix[i, j] = -2
+
+# print(matrix)
+
+                # *15*
+# import numpy as np
+
+# matrix = np.zeros((5, 5))
+
+# np.fill_diagonal(matrix, 1)
+
+# for i in range(5):
+#   for j in range(i):
+#     matrix[i, j] = 2
+
+# print(matrix)
+
+# Задание 12
+
+# import numpy as np
+
+# # Загрузка данных из файла
+# matrix = np.loadtxt("lower_triangular_matrix.txt")
+
+# # Проверка размерности
+# print("Размерность матрицы:", matrix.shape)
+
+# # Создание одномерного массива-диапазона
+# vector = np.arange(5)
+
+# # Прибавление вектора к матрице
+# result_matrix = matrix + vector
+
+# print("Матрица после сложения с вектором:\n", result_matrix)
+
+# # Поиск максимального и минимального элементов
+# max_value = np.max(result_matrix)
+# min_value = np.min(result_matrix)
+# print("Максимальный элемент:", max_value)
+# print("Минимальный элемент:", min_value)
+
+# # Сумма элементов по строкам
+# row_sums = np.sum(result_matrix, axis=1)
+# print("Сумма элементов по строкам:\n", row_sums)
+
+# # Сохранение в файлы
+# np.savetxt("result_matrix.txt", result_matrix)
+# np.savetxt("vector.txt", vector)
+
+# print("Матрица сохранена в файл result_matrix.txt")
+# print("Вектор сохранен в файл vector.txt")
+
+# Задание 13
+
+# import numpy as np
+# import math
+
+# def tabulate_function(function, start, end, step):
+  
+#   x_values = np.arange(start, end + step, step)
+#   y_values = [function(x) for x in x_values]
+#   return list(zip(x_values, y_values))
+
+# # 1. x^2 на отрезке x ∈ [-2; 2]
+# print("x^2 на отрезке x ∈ [-2; 2]")
+# print("Шаг 0.01:", tabulate_function(lambda x: x**2, -2, 2, 0.01))
+# print("Шаг 0.1:", tabulate_function(lambda x: x**2, -2, 2, 0.1))
+# print("Шаг 0.25:", tabulate_function(lambda x: x**2, -2, 2, 0.25))
+
+# # 2. x^3 на отрезке x ∈ [-2; 2]
+# print("\nx^3 на отрезке x ∈ [-2; 2]")
+# print("Шаг 0.01:", tabulate_function(lambda x: x**3, -2, 2, 0.01))
+# print("Шаг 0.1:", tabulate_function(lambda x: x**3, -2, 2, 0.1))
+# print("Шаг 0.25:", tabulate_function(lambda x: x**3, -2, 2, 0.25))
+
+# # 3. x^4 на отрезке x ∈ [-2; 2]
+# print("\nx^4 на отрезке x ∈ [-2; 2]")
+# print("Шаг 0.01:", tabulate_function(lambda x: x**4, -2, 2, 0.01))
+# print("Шаг 0.1:", tabulate_function(lambda x: x**4, -2, 2, 0.1))
+# print("Шаг 0.25:", tabulate_function(lambda x: x**4, -2, 2, 0.25))
+
+# # 4. cos(2πt) на отрезке t ∈ [-10; 10]
+# print("\ncos(2πt) на отрезке t ∈ [-10; 10]")
+# print("Шаг 1:", tabulate_function(lambda t: math.cos(2 * math.pi * t), -10, 10, 1))
+# print("Шаг 0.25:", tabulate_function(lambda t: math.cos(2 * math.pi * t), -10, 10, 0.25))
+
+# # 5. (1/t)cos(2πt) на отрезке t ∈ [1; 10]
+# print("\n(1/t)cos(2πt) на отрезке t ∈ [1; 10]")
+# print("Шаг 1:", tabulate_function(lambda t: (1/t) * math.cos(2 * math.pi * t), 1, 10, 1))
+# print("Шаг 0.25:", tabulate_function(lambda t: (1/t) * math.cos(2 * math.pi * t), 1, 10, 0.25))
+
+# # 6. e^(-t)cos(2πt) на отрезке t ∈ [-10; 10]
+# print("\ne^(-t)cos(2πt) на отрезке t ∈ [-10; 10]")
+# print("Шаг 1:", tabulate_function(lambda t: math.exp(-t) * math.cos(2 * math.pi * t), -10, 10, 1))
+# print("Шаг 0.25:", tabulate_function(lambda t: math.exp(-t) * math.cos(2 * math.pi * t), -10, 10, 0.25))
+
+# # 7. 4sin(πt + π/8) - 1 на отрезке t ∈ [-10; 10]
+# print("\n4sin(πt + π/8) - 1 на отрезке t ∈ [-10; 10]")
+# print("Шаг 1:", tabulate_function(lambda t: 4 * math.sin(math.pi * t + math.pi / 8) - 1, -10, 10, 1))
+# print("Шаг 0.25:", tabulate_function(lambda t: 4 * math.sin(math.pi * t + math.pi / 8) - 1, -10, 10, 0.25))
+
+# # 8. 2cos(t-2) + sin(2t-4) на отрезке t ∈ [-20π; 10π]
+# print("\n2cos(t-2) + sin(2t-4) на отрезке t ∈ [-20π; 10π]")
+# print("Шаг π:", tabulate_function(lambda t: 2 * math.cos(t - 2) + math.sin(2 * t - 4), -20 * math.pi, 10 * math.pi, math.pi))
+# print("Шаг π/12:", tabulate_function(lambda t: 2 * math.cos(t - 2) + math.sin(2 * t - 4), -20 * math.pi, 10 * math.pi, math.pi / 12))
+
+# # 9. ln(x + 1) на отрезке x ∈ [0; e - 1]
+# print("\nln(x + 1) на отрезке x ∈ [0; e - 1]")
+# print("Шаг 0.01:", tabulate_function(lambda x: math.log(x + 1), 0, math.e - 1, 0.01))
+# print("Шаг 0.001:", tabulate_function(lambda x: math.log(x + 1), 0, math.e - 1, 0.001))
+
+# # 10. log2(|x|) на отрезке x ∈ [-4; 4]
+# print("\nlog2(|x|) на отрезке x ∈ [-4; 4]")
+# print("Шаг 0.1:", [(x, math.log2(abs(x))) for x in np.arange(-4, 4, 0.1) if x != 0])
+# print("Шаг 0.25:", [(x, math.log2(abs(x))) for x in np.arange(-4, 4, 0.25) if x != 0])
+
+# # 11. 2^x на отрезке x ∈ [-2; 2]
+# print("\n2^x на отрезке x ∈ [-2; 2]")
+# print("Шаг 0.01:", tabulate_function(lambda x: 2**x, -2, 2, 0.01))
+# print("Шаг 0.1:", tabulate_function(lambda x: 2**x, -2, 2, 0.1))
+# print("Шаг 0.25:", tabulate_function(lambda x: 2**x, -2, 2, 0.25))
+
+# # 12. e^x на отрезке x ∈ [-2; 2]
+# print("\ne^x на отрезке x ∈ [-2; 2]")
+# print("Шаг 0.01:", tabulate_function(lambda x: math.exp(x), -2, 2, 0.01))
+# print("Шаг 0.1:", tabulate_function(lambda x: math.exp(x), -2, 2, 0.1))
+# print("Шаг 0.25:", tabulate_function(lambda x: math.exp(x), -2, 2, 0.25))
+
+# # 13. 2^(-x) на отрезке x ∈ [-2; 2]
+# print("\n2^(-x) на отрезке x ∈ [-2; 2]")
+# print("Шаг 0.01:", tabulate_function(lambda x: 2**(-x), -2, 2, 0.01))
+# print("Шаг 0.1:", tabulate_function(lambda x: 2**(-x), -2, 2, 0.1))
+# print("Шаг 0.25:", tabulate_function(lambda x: 2**(-x), -2, 2, 0.25))
+
+# # 14. √3^x на отрезке x ∈ [1; 125]
+# print("\n√3^x на отрезке x ∈ [1; 125]")
+# print("Шаг 1:", tabulate_function(lambda x: math.sqrt(3)**x, 1, 125, 1))
+# print("Шаг 5 (с 1 и 5):", [(1, math.sqrt(3)**1), (5, math.sqrt(3)**5)] + tabulate_function(lambda x: math.sqrt(3)**x, 6, 125, 5))
+
+# # 15. √5^x на отрезке x ∈ [1; 32]
+# print("\n√5^x на отрезке x ∈ [1; 32]")
+# print("Шаг 1:", tabulate_function(lambda x: math.sqrt(5)**x, 1, 32, 1))
+# print("Шаг 0.25:", tabulate_function(lambda x: math.sqrt(5)**x, 1, 32, 0.25))
+
+
+                                #         Глава 5
+                                # Графики. Модуль matplotlib
